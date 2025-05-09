@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EduSpark.API</name>
+    </assembly>
+    <members>
+        <member name="M:EduSpark.API.Controllers.GameController.GetGames">
+            <summary>
+            Game list
+            </summary>
+            <response code="200">Successfully get game list</response>
+        </member>
+        <member name="M:EduSpark.API.Controllers.LeaderboardController.GetLeaderboard(System.Int32)">
+            <summary>
+            Get leaderboard in a game
+            </summary>
+            <param name="gameID"></param>
+            <response code="200">Success get leaderboard</response>
+            <response code="400">Game not found</response>
+            <response code="404">Game not found</response>
+        </member>
+        <member name="M:EduSpark.API.Controllers.LeaderboardController.PostLeaderboard(EduSpark.API.Controllers.LeaderboardDTO)">
+            <summary>
+            Post new data to leaderboards
+            </summary>
+            <response code="200">Success post new data</response>
+            <response code="400">Request body invalid (bad request)</response>
+            <response code="404">Game not found</response>
+        </member>
+        <member name="M:EduSpark.API.Controllers.WordController.GetWordsInGame(System.Int32)">
+            <summary>
+            Get words in a game
+            </summary>
+            <param name="gameID"></param>
+            <response code="200">Successfully get words</response>
+            <response code="404">Game not found</response>
+        </member>
+    </members>
+</doc>

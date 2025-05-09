@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geegy.API</name>
+    </assembly>
+    <members>
+        <member name="M:Geegy.API.Controllers.AppointmentsController.GetAppointments(System.DateTime,System.String)">
+            <summary>
+            Get appointments log
+            </summary>
+            <param name="date"></param>
+            <param name="search"></param>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:Geegy.API.Controllers.AppointmentsController.GetAppointmentDetail(System.Int32)">
+            <summary>
+            Get appointment detail
+            </summary>
+            <param name="id"></param>
+            <response code="200">Success</response>
+            <response code="404">Data not found</response>
+        </member>
+    </members>
+</doc>
