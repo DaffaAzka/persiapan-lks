@@ -1,0 +1,13 @@
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\EntityFramework.dll
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\EntityFramework.xml
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsF.A1EEDF9B.Up2Date
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\Programming\Sekolah\LKS\2025\Day1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

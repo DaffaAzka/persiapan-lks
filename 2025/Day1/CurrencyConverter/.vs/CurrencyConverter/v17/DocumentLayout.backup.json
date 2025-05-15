@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F3B1552-5F60-4323-8067-EC607BC68B72}|CurrencyConverter\\CurrencyConverter.csproj|d:\\programming\\sekolah\\lks\\2025\\day1\\currencyconverter\\currencyconverter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F3B1552-5F60-4323-8067-EC607BC68B72}|CurrencyConverter\\CurrencyConverter.csproj|solutionrelative:currencyconverter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F3B1552-5F60-4323-8067-EC607BC68B72}|CurrencyConverter\\CurrencyConverter.csproj|d:\\programming\\sekolah\\lks\\2025\\day1\\currencyconverter\\currencyconverter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4F3B1552-5F60-4323-8067-EC607BC68B72}|CurrencyConverter\\CurrencyConverter.csproj|solutionrelative:currencyconverter\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F3B1552-5F60-4323-8067-EC607BC68B72}|CurrencyConverter\\CurrencyConverter.csproj|D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\currencyconverter\\model.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{4F3B1552-5F60-4323-8067-EC607BC68B72}|CurrencyConverter\\CurrencyConverter.csproj|solutionrelative:currencyconverter\\model.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\CurrencyConverter\\Form1.cs",
+              "RelativeDocumentMoniker": "CurrencyConverter\\Form1.cs",
+              "ToolTip": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\CurrencyConverter\\Form1.cs",
+              "RelativeToolTip": "CurrencyConverter\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T18:36:55.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\CurrencyConverter\\Form1.cs",
+              "RelativeDocumentMoniker": "CurrencyConverter\\Form1.cs",
+              "ToolTip": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\CurrencyConverter\\Form1.cs [Design]",
+              "RelativeToolTip": "CurrencyConverter\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T18:26:59.152Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Model.edmx [Diagram1]",
+              "DocumentMoniker": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\CurrencyConverter\\Model.edmx",
+              "RelativeDocumentMoniker": "CurrencyConverter\\Model.edmx",
+              "ToolTip": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\CurrencyConverter\\CurrencyConverter\\Model.edmx [Diagram1]",
+              "RelativeToolTip": "CurrencyConverter\\Model.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-05-13T18:35:40.114Z",
+              "EditorCaption": " [Diagram1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

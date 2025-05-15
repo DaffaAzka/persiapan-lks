@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CurrencyConverterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="abbreviation" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USDExchangeRate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="period_id" Type="int" Nullable="false" />
+          <Property Name="currency_id" Type="int" Nullable="false" />
+          <Property Name="rate" Type="decimal" Precision="13" Scale="4" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__USDExchan__curre__3C69FB99">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+          <End Role="USDExchangeRate" Type="Self.USDExchangeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USDExchangeRate">
+              <PropertyRef Name="currency_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USDExchan__perio__3B75D760">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="USDExchangeRate" Type="Self.USDExchangeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USDExchangeRate">
+              <PropertyRef Name="period_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CurrencyConverterModelStoreContainer">
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Period" EntityType="Self.Period" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USDExchangeRate" EntityType="Self.USDExchangeRate" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__USDExchan__curre__3C69FB99" Association="Self.FK__USDExchan__curre__3C69FB99">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="USDExchangeRate" EntitySet="USDExchangeRate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USDExchan__perio__3B75D760" Association="Self.FK__USDExchan__perio__3B75D760">
+            <End Role="Period" EntitySet="Period" />
+            <End Role="USDExchangeRate" EntitySet="USDExchangeRate" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CurrencyConverterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="abbreviation" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USDExchangeRates" Relationship="Self.FK__USDExchan__curre__3C69FB99" FromRole="Currency" ToRole="USDExchangeRate" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USDExchangeRates" Relationship="Self.FK__USDExchan__perio__3B75D760" FromRole="Period" ToRole="USDExchangeRate" />
+        </EntityType>
+        <EntityType Name="USDExchangeRate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="period_id" Type="Int32" Nullable="false" />
+          <Property Name="currency_id" Type="Int32" Nullable="false" />
+          <Property Name="rate" Type="Decimal" Precision="13" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Currency" Relationship="Self.FK__USDExchan__curre__3C69FB99" FromRole="USDExchangeRate" ToRole="Currency" />
+          <NavigationProperty Name="Period" Relationship="Self.FK__USDExchan__perio__3B75D760" FromRole="USDExchangeRate" ToRole="Period" />
+        </EntityType>
+        <Association Name="FK__USDExchan__curre__3C69FB99">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+          <End Role="USDExchangeRate" Type="Self.USDExchangeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USDExchangeRate">
+              <PropertyRef Name="currency_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USDExchan__perio__3B75D760">
+          <End Role="Period" Type="Self.Period" Multiplicity="1" />
+          <End Role="USDExchangeRate" Type="Self.USDExchangeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Period">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USDExchangeRate">
+              <PropertyRef Name="period_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CurrencyConverterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Currencies" EntityType="Self.Currency" />
+          <EntitySet Name="Periods" EntityType="Self.Period" />
+          <EntitySet Name="USDExchangeRates" EntityType="Self.USDExchangeRate" />
+          <AssociationSet Name="FK__USDExchan__curre__3C69FB99" Association="Self.FK__USDExchan__curre__3C69FB99">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="USDExchangeRate" EntitySet="USDExchangeRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USDExchan__perio__3B75D760" Association="Self.FK__USDExchan__perio__3B75D760">
+            <End Role="Period" EntitySet="Periods" />
+            <End Role="USDExchangeRate" EntitySet="USDExchangeRates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CurrencyConverterModelStoreContainer" CdmEntityContainer="CurrencyConverterEntities">
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="CurrencyConverterModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="abbreviation" ColumnName="abbreviation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periods">
+            <EntityTypeMapping TypeName="CurrencyConverterModel.Period">
+              <MappingFragment StoreEntitySet="Period">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USDExchangeRates">
+            <EntityTypeMapping TypeName="CurrencyConverterModel.USDExchangeRate">
+              <MappingFragment StoreEntitySet="USDExchangeRate">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="period_id" ColumnName="period_id" />
+                <ScalarProperty Name="currency_id" ColumnName="currency_id" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

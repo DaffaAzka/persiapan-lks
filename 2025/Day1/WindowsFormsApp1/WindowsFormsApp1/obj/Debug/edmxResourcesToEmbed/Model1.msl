@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CurrencyConverterModelStoreContainer" CdmEntityContainer="CurrencyConverterEntities">
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="CurrencyConverterModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="abbreviation" ColumnName="abbreviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periods">
+      <EntityTypeMapping TypeName="CurrencyConverterModel.Period">
+        <MappingFragment StoreEntitySet="Period">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USDExchangeRates">
+      <EntityTypeMapping TypeName="CurrencyConverterModel.USDExchangeRate">
+        <MappingFragment StoreEntitySet="USDExchangeRate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="period_id" ColumnName="period_id" />
+          <ScalarProperty Name="currency_id" ColumnName="currency_id" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
