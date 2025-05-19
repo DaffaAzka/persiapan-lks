@@ -57,36 +57,46 @@ namespace WindowsFormsApp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            converter();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            converter();
         }
 
         private void converter()
         {
-            var c1 = Convert.ToInt32(comboBox1.SelectedValue);
-            var c2 = Convert.ToInt32(comboBox2.SelectedValue);
-            var c3 = Convert.ToInt32(comboBox3.SelectedValue);
 
-            decimal result = 0;
-
-            var exchanges1 = model.USDExchangeRates.Where(p => p.period_id == c1)
-                .Where(p => p.currency_id == c2)
-                .Select(p => new {p.id, p.rate}).FirstOrDefault();
-
-            var exchanges2 = model.USDExchangeRates.Where(p => p.period_id == c1)
-                .Where(p => p.currency_id == c3)
-                .Select(p => new { p.id, p.rate }).FirstOrDefault();
-
-            if(exchanges1 != null && exchanges2 != null)
+            try
             {
-                var s = exchanges2.rate / exchanges1.rate;
-                result = numericUpDown1.Value * s;
-            }
+                var c1 = int.Parse(comboBox1.SelectedValue.ToString());
+                var c2 = int.Parse(comboBox2.SelectedValue.ToString());
+                var c3 = int.Parse(comboBox3.SelectedValue.ToString());
 
-            textBox1.Text = result.ToString();
+                double t2 = double.Parse(textBox2.Text);
+
+                decimal result = 0;
+
+                var exchanges1 = model.USDExchangeRates.Where(p => p.period_id == c1)
+                    .Where(p => p.currency_id == c2)
+                    .Select(p => new { p.id, p.rate }).FirstOrDefault();
+
+                var exchanges2 = model.USDExchangeRates.Where(p => p.period_id == c1)
+                    .Where(p => p.currency_id == c3)
+                    .Select(p => new { p.id, p.rate }).FirstOrDefault();
+
+                if (exchanges1 != null && exchanges2 != null)
+                {
+                    var s = exchanges2.rate / exchanges1.rate;
+                    result = (decimal)t2 * s;
+                }
+
+                textBox1.Text = Math.Round(result, 3).ToString();
+            } catch(Exception e)
+            {
+
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -95,6 +105,38 @@ namespace WindowsFormsApp1
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            converter();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            var c2 = textBox2.Text;
+            var c1 = textBox1.Text;
+
+            var cb1 = comboBox2.SelectedIndex;
+            var cb2 = comboBox3.SelectedIndex;
+
+            comboBox2.SelectedIndex = cb2;
+            comboBox3.SelectedIndex = cb1;
+
+            textBox2.Text = c1.ToString();
+            textBox1.Text = c2.ToString();
+
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
             converter();
         }

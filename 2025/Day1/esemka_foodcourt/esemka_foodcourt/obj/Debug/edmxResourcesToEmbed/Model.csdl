@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EsemkaFoodcourtModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Menus" Relationship="Self.FK_Categories_Menu_CategoryID" FromRole="Categories" ToRole="Menus" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="MenuIngredients" Relationship="Self.FK_Ingredients_MenuIngredient_IngredientID" FromRole="Ingredients" ToRole="MenuIngredients" />
+  </EntityType>
+  <EntityType Name="MenuIngredient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="IngredientID" Type="Int32" Nullable="false" />
+    <Property Name="UnitID" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ingredient" Relationship="Self.FK_Ingredients_MenuIngredient_IngredientID" FromRole="MenuIngredients" ToRole="Ingredients" />
+    <NavigationProperty Name="Menu" Relationship="Self.FK_Menus_MenuIngredient_MenuID" FromRole="MenuIngredients" ToRole="Menus" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK_Units_MenuIngredient_UnitID" FromRole="MenuIngredients" ToRole="Units" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Categories_Menu_CategoryID" FromRole="Menus" ToRole="Categories" />
+    <NavigationProperty Name="MenuIngredients" Relationship="Self.FK_Menus_MenuIngredient_MenuID" FromRole="Menus" ToRole="MenuIngredients" />
+    <NavigationProperty Name="ReservationDetails" Relationship="Self.FK_Menus_ReservationDetail_MenuID" FromRole="Menus" ToRole="ReservationDetails" />
+  </EntityType>
+  <EntityType Name="ReservationDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReservationID" Type="Int32" Nullable="false" />
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="Self.FK_Menus_ReservationDetail_MenuID" FromRole="ReservationDetails" ToRole="Menus" />
+    <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservations_ReservationDetail_ReservationID" FromRole="ReservationDetails" ToRole="Reservations" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerFirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerLastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerPhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumberOfPeople" Type="Int32" Nullable="false" />
+    <Property Name="TableID" Type="Int32" Nullable="false" />
+    <Property Name="ReservationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="ReservationDetails" Relationship="Self.FK_Reservations_ReservationDetail_ReservationID" FromRole="Reservations" ToRole="ReservationDetails" />
+    <NavigationProperty Name="Table" Relationship="Self.FK_Tables_Reservation_TableID" FromRole="Reservations" ToRole="Tables" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Users_Reservation_UserID" FromRole="Reservations" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Roles_User_RoleID" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_Tables_Reservation_TableID" FromRole="Tables" ToRole="Reservations" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="MenuIngredients" Relationship="Self.FK_Units_MenuIngredient_UnitID" FromRole="Units" ToRole="MenuIngredients" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateJoined" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Reservations" Relationship="Self.FK_Users_Reservation_UserID" FromRole="Users" ToRole="Reservations" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Roles_User_RoleID" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="FK_Categories_Menu_CategoryID">
+    <End Role="Categories" Type="Self.Category" Multiplicity="1" />
+    <End Role="Menus" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Menus">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredients_MenuIngredient_IngredientID">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="1" />
+    <End Role="MenuIngredients" Type="Self.MenuIngredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MenuIngredients">
+        <PropertyRef Name="IngredientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menus_MenuIngredient_MenuID">
+    <End Role="Menus" Type="Self.Menu" Multiplicity="1" />
+    <End Role="MenuIngredients" Type="Self.MenuIngredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MenuIngredients">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Units_MenuIngredient_UnitID">
+    <End Role="Units" Type="Self.Unit" Multiplicity="1" />
+    <End Role="MenuIngredients" Type="Self.MenuIngredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Units">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MenuIngredients">
+        <PropertyRef Name="UnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menus_ReservationDetail_MenuID">
+    <End Role="Menus" Type="Self.Menu" Multiplicity="1" />
+    <End Role="ReservationDetails" Type="Self.ReservationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReservationDetails">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservations_ReservationDetail_ReservationID">
+    <End Role="Reservations" Type="Self.Reservation" Multiplicity="1" />
+    <End Role="ReservationDetails" Type="Self.ReservationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reservations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReservationDetails">
+        <PropertyRef Name="ReservationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tables_Reservation_TableID">
+    <End Role="Tables" Type="Self.Table" Multiplicity="1" />
+    <End Role="Reservations" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tables">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="TableID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Reservation_UserID">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Reservations" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Reservations">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_User_RoleID">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EsemkaFoodcourtEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
+    <EntitySet Name="MenuIngredients" EntityType="Self.MenuIngredient" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="ReservationDetails" EntityType="Self.ReservationDetail" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Tables" EntityType="Self.Table" />
+    <EntitySet Name="Units" EntityType="Self.Unit" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Categories_Menu_CategoryID" Association="Self.FK_Categories_Menu_CategoryID">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Menus" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredients_MenuIngredient_IngredientID" Association="Self.FK_Ingredients_MenuIngredient_IngredientID">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="MenuIngredients" EntitySet="MenuIngredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menus_MenuIngredient_MenuID" Association="Self.FK_Menus_MenuIngredient_MenuID">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="MenuIngredients" EntitySet="MenuIngredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Units_MenuIngredient_UnitID" Association="Self.FK_Units_MenuIngredient_UnitID">
+      <End Role="Units" EntitySet="Units" />
+      <End Role="MenuIngredients" EntitySet="MenuIngredients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menus_ReservationDetail_MenuID" Association="Self.FK_Menus_ReservationDetail_MenuID">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="ReservationDetails" EntitySet="ReservationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservations_ReservationDetail_ReservationID" Association="Self.FK_Reservations_ReservationDetail_ReservationID">
+      <End Role="Reservations" EntitySet="Reservations" />
+      <End Role="ReservationDetails" EntitySet="ReservationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tables_Reservation_TableID" Association="Self.FK_Tables_Reservation_TableID">
+      <End Role="Tables" EntitySet="Tables" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Reservation_UserID" Association="Self.FK_Users_Reservation_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reservations" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_User_RoleID" Association="Self.FK_Roles_User_RoleID">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

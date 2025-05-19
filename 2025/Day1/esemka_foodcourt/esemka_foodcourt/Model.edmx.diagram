@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fd16f6b64ae48e29b7ba59414588bce" Name="Diagram1">
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.Category" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.Ingredient" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.MenuIngredient" Width="1.5" PointX="7.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.Menu" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.ReservationDetail" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.Reservation" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.Role" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.Table" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.Unit" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaFoodcourtModel.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Categories_Menu_CategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Ingredients_MenuIngredient_IngredientID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Menus_MenuIngredient_MenuID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Units_MenuIngredient_UnitID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Menus_ReservationDetail_MenuID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Reservations_ReservationDetail_ReservationID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Tables_Reservation_TableID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Users_Reservation_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaFoodcourtModel.FK_Roles_User_RoleID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
