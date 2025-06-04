@@ -72,5 +72,127 @@ namespace esemka_foodcourt
         {
             load();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+            Reservation r = model.Reservations.Where(x => x.TableID == 1).Where(x => x.ReservationDate == selectedDate).FirstOrDefault();
+
+            if (r != null)
+            {
+                               
+                textBox1.Text = r.CustomerFirstName + " " + r.CustomerLastName;
+                textBox2.Text = r.CustomerEmail;
+                textBox3.Text = r.CustomerPhoneNumber;
+
+                getOrder(r);
+
+            } else
+            {
+                MessageBox.Show("Found Clicked");
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image.Equals(Properties.Resources.table_reserved))
+            {
+                DateTime selectedDate = dateTimePicker1.Value.Date;
+                Reservation r = model.Reservations.Where(x => x.TableID == 2).Where(x => x.ReservationDate == selectedDate).FirstOrDefault();
+
+                textBox1.Text = r.CustomerFirstName + " " + r.CustomerLastName;
+                textBox2.Text = r.CustomerEmail;
+                textBox3.Text = r.CustomerPhoneNumber;
+
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (pictureBox3.Image.Equals(Properties.Resources.table_reserved))
+            {
+                DateTime selectedDate = dateTimePicker1.Value.Date;
+                Reservation r = model.Reservations.Where(x => x.TableID == 3).Where(x => x.ReservationDate == selectedDate).FirstOrDefault();
+
+                textBox1.Text = r.CustomerFirstName + " " + r.CustomerLastName;
+                textBox2.Text = r.CustomerEmail;
+                textBox3.Text = r.CustomerPhoneNumber;
+
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (pictureBox4.Image.Equals(Properties.Resources.table_reserved))
+            {
+                DateTime selectedDate = dateTimePicker1.Value.Date;
+                Reservation r = model.Reservations.Where(x => x.TableID == 4).Where(x => x.ReservationDate == selectedDate).FirstOrDefault();
+
+                textBox1.Text = r.CustomerFirstName + " " + r.CustomerLastName;
+                textBox2.Text = r.CustomerEmail;
+                textBox3.Text = r.CustomerPhoneNumber;
+
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (pictureBox5.Image.Equals(Properties.Resources.table_reserved))
+            {
+                DateTime selectedDate = dateTimePicker1.Value.Date;
+                Reservation r = model.Reservations.Where(x => x.TableID == 5).Where(x => x.ReservationDate == selectedDate).FirstOrDefault();
+
+                textBox1.Text = r.CustomerFirstName + " " + r.CustomerLastName;
+                textBox2.Text = r.CustomerEmail;
+                textBox3.Text = r.CustomerPhoneNumber;
+
+            }
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            if (pictureBox6.Image.Equals(Properties.Resources.table_reserved))
+            {
+                DateTime selectedDate = dateTimePicker1.Value.Date;
+                Reservation r = model.Reservations.Where(x => x.TableID == 6).Where(x => x.ReservationDate == selectedDate).FirstOrDefault();
+
+                textBox1.Text = r.CustomerFirstName + " " + r.CustomerLastName;
+                textBox2.Text = r.CustomerEmail;
+                textBox3.Text = r.CustomerPhoneNumber;
+
+            }
+        }
+
+
+        private void getOrder(Reservation reservation)
+        {
+            var dt = new DataTable();
+            dt.Columns.Add("Menu", typeof(string));
+            dt.Columns.Add("Qty", typeof(string));
+            dt.Columns.Add("Price", typeof(string));
+            dt.Columns.Add("Sub Total", typeof(string));
+
+            var orders = model.ReservationDetails.Select(r => new
+            {
+                r.ReservationID,
+                r.Qty,
+                r.ID,
+                menu = model.Menus.Where(x => x.ID == r.MenuID).FirstOrDefault(),
+            }).Where(x => x.ReservationID == reservation.ID).ToList();
+
+            foreach (var order in orders)
+            {
+                dt.Rows.Add(order.menu.Name, order.Qty, "Rp" + order.menu.Price, "Rp" + (order.Qty * order.menu.Price));
+
+            }
+
+            dataGridView1.DataSource = dt;
+        }
     }
 }

@@ -21,6 +21,15 @@ namespace esemka_foodcourt
             numericUpDown1.Minimum = 0;
             numericUpDown1.Maximum = 9999999;
             loadData();
+            loadCombo();
+        }
+
+        public void loadCombo()
+        {
+            comboBox1.Items.Add("Pilih Category");
+            comboBox1.DataSource = model.Categories.ToList();
+            comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "Id";
         }
 
         public void loadData()
@@ -69,11 +78,17 @@ namespace esemka_foodcourt
                 textBox1.Text = m.Name;
                 textBox2.Text = m.Description;
                 numericUpDown1.Value = (decimal) m.Price;
+                comboBox1.SelectedIndex = m.CategoryID - 1;
             }
 
 
 
 
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
