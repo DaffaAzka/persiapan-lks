@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\WebApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{417BB010-0F57-4174-973F-6429DD684DEC}|WebApplication1\\WebApplication1.csproj|d:\\programming\\sekolah\\lks\\2025\\day1\\webapplication1\\webapplication1\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{417BB010-0F57-4174-973F-6429DD684DEC}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Component.razor",
+              "DocumentMoniker": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\WebApplication1\\WebApplication1\\Component.razor",
+              "RelativeDocumentMoniker": "WebApplication1\\Component.razor",
+              "ToolTip": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\WebApplication1\\WebApplication1\\Component.razor",
+              "RelativeToolTip": "WebApplication1\\Component.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T00:45:28.73Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

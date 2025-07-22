@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "+ah1yeTlt/I=",
+  "success": true,
+  "projectFilePath": "D:\\Programming\\Sekolah\\LKS\\2025\\Day1\\WebAPI\\WebAPI\\WebAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Daffa Azka\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\8.0.14\\microsoft.dotnet.ilcompiler.8.0.14.nupkg.sha512",
+    "C:\\Users\\Daffa Azka\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.14\\microsoft.net.illink.tasks.8.0.14.nupkg.sha512",
+    "C:\\Users\\Daffa Azka\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\8.0.14\\runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
